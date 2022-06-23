@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link rel="stylesheet" href="pizza.css">
+  <script src="//unpkg.com/alpinejs" defer></script>
+
+ 
+</head>
+<body>
+
+  <div class="container" x-data="{showCart: false,
+
+    largePizza : 0.00,
+    largePizzaQty : 0,
+    mediumPizza: 0.00,
+    mediumPizzaQty: 0,
+    smallPizza : 0.00,
+    smallPizzaQty: 0,
+    cartPicShow: true,
+    checkOut: false,
+    checkOutButton: true,
+
+    paymentAmount: 0,
+     returnMessage: '',
+    makePayment () {
+      if(!this.paymentAmount) {
+        this.returnMessage = 'No amount entered'
+      }
+      else if ((this.largePizza + this.mediumPizza + this.smallPizza) > this.paymentAmount) {
+        this.returnMessage = 'Payment unsuccessful'
+      }
+      else {this.returnMessage = 'Payment Successful'}
+
+    }
+  }">
+
+  
+  <h1>Perfect Pizza</h1>
+  <br>
+  <br>
+
+  <div x-show="cartPicShow">
+   <button @click="showCart = true; cartPicShow = false">
+    <img src="https://thumbs.dreamstime.com/z/cart-stall-pizza-vector-illustration-white-background-51535050.jpg" width="50" alt="">
+    <br>
+    Show cart
+   </button> 
+   <!-- R<price x-text="(largePizza + mediumPizza + smallPizza).toFixed(2)"></price> -->
+   <span x-show="largePizzaQty + mediumPizzaQty + smallPizzaQty > 0">
+   <quantity x-text="largePizzaQty + mediumPizzaQty + smallPizzaQty"></quantity> pizza in the cart
+  </span>
+  </div>
+
+
+  
+  <div class="cartBox" x-show="showCart">
+  <div class="cartPicHide">
+    <button @click="showCart = false; cartPicShow = true">
+     <img src="https://thumbs.dreamstime.com/z/cart-stall-pizza-vector-illustration-white-background-51535050.jpg" width="20" alt="">
+     <br>
+     Close cart
+    </button>
+   </div>
+
+    <div class="cart">
+    <h2> Cart
+      <img src="https://thumbs.dreamstime.com/z/cart-stall-pizza-vector-illustration-white-background-51535050.jpg" width="40" alt="">
+    </h2>
+  </div>
+  
+  <table class="myTable">
+
+    <tr x-show="largePizzaQty > 0 ">
+      <td>Large pizza</td>
+      <td>
+        <span x-text="largePizzaQty" x-show="largePizzaQty > 0 "></span>
+        <button class="go" @click="largePizza +=129.00; largePizzaQty +=1">+</button>
+        <button class="stop" @click="largePizza -=129.00; largePizzaQty -=1">-</button>
+      </td>
+      <td>
+        R<price x-text="largePizza.toFixed(2)" x-show="largePizzaQty > 0 "></price>
+      </td>
+    </tr>
+  
+  
+    <tr x-show="mediumPizzaQty > 0 ">
+      <td>Medium pizza</td>
+      <td>
+        <span x-text="mediumPizzaQty" x-show="mediumPizzaQty > 0 "></span>
+        <button class="go" @click="mediumPizza +=89.00; mediumPizzaQty +=1">+</button>
+        <button class="stop" @click="mediumPizza -=89.00; mediumPizzaQty -=1">-</button>
+      </td>
+      <td>
+        R<price x-text="mediumPizza.toFixed(2)" x-show="mediumPizzaQty > 0 "></price>
+      </td>
+    </tr>
+  
+  
+    <tr x-show="smallPizzaQty > 0 ">
+      <td>Small pizza</td>
+      <td>
+        <span x-text="smallPizzaQty" x-show="smallPizzaQty > 0 "></span>
+        <button class="go" @click="smallPizza +=49.00; smallPizzaQty +=1">+</button>
+        <button class="stop" @click="smallPizza -=49.00; smallPizzaQty -=1">-</button>
+      </td>
+      <td>
+        R<price x-text="smallPizza.toFixed(2)" x-show="smallPizzaQty > 0 "></price>
+      </td>
+    </tr>
+  
+    <tr x-show="largePizzaQty + mediumPizzaQty + smallPizzaQty > 0">
+      <td colspan="2">Total cost</td>
+      <td>R<price x-text="(largePizza + mediumPizza + smallPizza).toFixed(2) " x-show="largePizzaQty + mediumPizzaQty + smallPizzaQty > 0"></price></td>
+    </tr>
+
+    <tr class="empty">
+      <td colspan="3"></td>
+    </tr>
+
+    <br>
+
+    <tr>
+      <td colspan="2">
+        <div x-show="checkOut">
+        <div class="message" @click="checkOut = false" x-text="returnMessage"> <br></div>
+       <label for=""><br>Payment amount</label>
+       <input class="total" type="number" placeholder="amount to pay" x-model="paymentAmount">
+       <br>
+       <button class="PayNow" @click="makePayment">
+         <img src="https://icon-library.com/images/check-out-icon/check-out-icon-13.jpg" width="30" alt="">
+         Pay
+        </button>
+      </div>
+      </td>
+      <td>
+  
+          <div class="checkoutButton" x-show="largePizzaQty + mediumPizzaQty + smallPizzaQty > 0">
+    <button class="check" x-show="!checkOut" @click="checkOut = true" >
+      <img src="https://icon-library.com/images/check-out-icon/check-out-icon-13.jpg" width="30" alt="">
+      Checkout/Pay
+    </button>
+  </div>
+      </td>
+    </tr>
+      
+  </table>
+
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="pizza">
+<div class="Large_pizza">
+  <h2>Large pizza</h2>
+  <img src= "https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2020-03/hawaiian-pizza.jpg?itok=a1-_QjRA" width="450">
+  <h3>R129.00</h3>
+  <div>
+      A cheesy delight? Weekend calls for some fun and nothing can be better than enjoying your favourite easy cheesy delight at home with your friends and family.     
+  </div>
+  <button class="buyButton" @click="largePizza +=129.00; largePizzaQty +=1" >Buy</button> 
+</div>
+  
+<div class="Medium_pizza">
+   <h2>Medium pizza</h2>
+   <img src= "https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2020-03/hawaiian-pizza.jpg?itok=a1-_QjRA" width="350">
+  <h3>R89.00</h3>
+  <div>
+    The secret for best pepperoni flavor. Chop up half the pepperoni and add it in a layer under the cheese with the sauce! This gives the pizza amazing pepperoni flavor.
+  </div> 
+  <button class="buyButton" @click="mediumPizza +=89.00; mediumPizzaQty +=1" >Buy</button>  
+</div>
+
+  
+<div class="Small_pizza">
+    <h2>Small pizza</h2>
+    <img src= "https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2020-03/hawaiian-pizza.jpg?itok=a1-_QjRA" width="250">
+  <h3>R49.00</h3>
+  <div>
+    BBQ chicken pizza with an irresistable tangy and sweet barbecue sauce slathered over a soft, fluffy crust.
+  </div>
+  <button class="buyButton" @click="smallPizza +=49.00; smallPizzaQty +=1" >Buy</button>
+</div>
+
+</div>
+
+ <div class="Contact_details">
+  <h2>Contact Details</h2>
+  
+
+  <div class="data1">
+      Contact us at: 0115590001 
+  
+  <br> info@perfectpizza.co.za 
+  </div>
+  
+  <div class="data2">
+   Delicious Pizza
+<br> Pretoria Road
+<br> Kempton Park
+</div>
+</div>
+
+
+</div>          
+</body>
+</html>

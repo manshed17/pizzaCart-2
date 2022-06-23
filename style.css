@@ -1,0 +1,50 @@
+
+body {
+    background-color: #457b9d;
+}
+
+.Large_pizza {
+    border : 0.5em solid;
+    padding : 1em;
+    margin: 1em;
+    border-radius : 1em;
+    background-color: #d62828;
+}        
+.Medium_pizza {
+    background-color: #f77f00;
+    border : 0.5em solid;
+    border-radius : 1em;
+    margin : 1em;
+    padding : 1em;            
+}
+.Small_pizza {
+    background-color: #fcbf49;
+    border : 0.5em solid;
+    border-radius : 1em;
+    margin : 1em;
+    padding : 1em;            
+}
+.Contact_details {
+    background-color: #eae2b7;
+    border : 0.5em solid;
+    border-radius : 1em;
+    margin : 1em;
+    padding : 1em;            
+}
+@media (min-width: 768px) {
+    body {
+    background-color: #7db0d1;
+}
+.pizza {
+    display: flex;
+    }
+}
+
+
+h1 {text-align: center;}
+h2 {text-align: center;}
+
+.Contact_details {text-align: center;
+}
+
+

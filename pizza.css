@@ -1,0 +1,75 @@
+
+body {
+    background-image: radial-gradient(purple, pink, blue);
+}
+
+.Large_pizza {
+    border : 0.5em solid;
+    padding : 1em;
+    margin: 1em;
+    border-radius : 1em;
+    background-color: #d62828;
+    flex: 1;
+}        
+.Medium_pizza {
+    background-color: #f77f00;
+    border : 0.5em solid;
+    border-radius : 1em;
+    margin : 1em;
+    padding : 1em;
+    flex: 1;            
+}
+.Small_pizza {
+    background-color: #fcbf49;
+    border : 0.5em solid;
+    border-radius : 1em;
+    margin : 1em;
+    padding : 1em;
+    flex: 1;            
+}
+.Contact_details {
+    background-color: #eae2b7;
+    border : 0.5em solid;
+    border-radius : 1em;
+    margin : 1em;
+    padding : 1em;            
+    
+}
+@media (min-width: 768px) {
+    body {
+    background-image: repeating-radial-gradient(purple, pink 10%, blue 15%);
+}
+.pizza {
+    display: flex;
+    }
+.data1 {text-align: left;
+}
+.data2 {text-align: right;
+}
+}
+
+
+h1 {text-align: center;}
+h2 {text-align: center;}
+
+.Contact_details {text-align: center;
+}
+
+table{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.buyButton{
+    background-color: grey;
+    padding: 1em;
+}
+.buyButton:hover{
+    background-color: whitesmoke
+}
+.empty {
+    height: 10px;
+}
+.message {
+    background-color: tomato;
+}
