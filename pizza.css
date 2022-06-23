@@ -55,21 +55,69 @@ h2 {text-align: center;}
 .Contact_details {text-align: center;
 }
 
-table{
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.buyButton{
+.buyButton {
     background-color: grey;
-    padding: 1em;
+    padding : 1em; 
+    border : 0.2em solid;
+    margin-top : 3em;
 }
-.buyButton:hover{
-    background-color: whitesmoke
+.buyButton:hover{background-color: whitesmoke;}
+
+table{
+    border-collapse: collapse;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* td {
+    border: 2px solid rgb(17, 105, 5);
+    margin: 1em;
+    padding: 1em;
+} */
+
+.checkoutButton {
+    text-align: center;    
+}
+.check{background-color: grey;
+    padding : 0.4em;
+    border : 0.2em solid;
+    margin-top : 1em; 
+}
+.check:hover{background-color: whitesmoke;}
+
+.go{
+    background-color: green;
+}
+.go:hover{
+    background-color: greenyellow;
+}
+.stop{
+    background-color: rgb(129, 10, 10);
+}
+.stop:hover{background-color: red;}
+
+.cartPicShow {
+    text-align:right;    
+}
+.cartPicHide {
+    text-align:center;    
+}
+.cartBox {
+    background-color: #eae2b7;
+    border : 0.2em solid;
+    border-radius : 1em;
+    margin : 1em;
+    padding : 1em;
 }
 .empty {
     height: 10px;
 }
 .message {
     background-color: tomato;
+}
+.PayNow {
+    background-color: yellow;
+}
+.PayNow:hover {
+    background-color: orange;
 }
